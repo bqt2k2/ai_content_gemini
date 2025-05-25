@@ -12,7 +12,8 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
-
+def read_root():
+    return {"message": "Hello from Railway"}
 
 @app.post("/generate")
 async def generate_content(request: Request):
